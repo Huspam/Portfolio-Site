@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+        <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+        <title>Husam Solachuddin's Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="mediaqueries.css">
+    </head>
+    <body>
+        <nav id="desktop-nav">
+            <div class="logo" id="logo">Husam Solachuddin</div>
+            <div class="spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <ul class="nav-links">
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#experience">My Experience</a></li>
+                    <li><a href="#projects">My Projects</a></li>
+                    <li><a href="#faq">Husam's FAQ</a></li>
+                    <li><a href="#contact">My Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <nav id="hamburger-nav">
+            <div class="logo loaded">Husam Solachuddin</div>
+            <div class="hamburger-menu">
+                <div class="hamburger-icon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-links">
+                    <li><a href="#about" onclick="toggleMenu()">About Me</a></li>
+                    <li><a href="#experience" onclick="toggleMenu()">My Experience</a></li>
+                    <li><a href="#projects" onclick="toggleMenu()">My Projects</a></li>
+                    <li><a href="#faq" onclick="toggleMenu()">Husam's FAQ</a></li>
+                    <li><a href="#contact" onclick="toggleMenu()">My Contact</a></li>
+                </div>
+            </div>
+        </nav>
+        <section id="profile">
+            <div class="section__pic-container" onmouseover="flyPlane()">
+                <img src="../assets/pfp.png" class="main-pfp" alt="Me :D">
+                <div class="plane">✈</div>
+            </div>
+            <div class="section__text">
+                <div class="intro">
+                    <p class="tp1">
+                        Hey, <span class="tp2">I am</span>
+                    </p>
+                    <p1 class="title">Husam</p1>
+                    <p class="tp3">CS Student @ UC Irvine</p>
+                </div>
+                <div class="btn-container">
+                    <button 
+                    class="btn btn-color-2" 
+                    onclick="window.open('../assets/Husam-Solachuddin-Resume.pdf')">
+                        My Resume 📝
+                    </button>
+                    <button 
+                    class="btn btn-color-1" 
+                    onclick="sendEmail()">
+                        Say Hi 👋
+                    </button>
+                </div>
+                <div id="socials-container">
+                    <a href="https://www.linkedin.com/in/husam-solachuddin" target="_blank">
+                        <img src="../assets/linkedin-w.png" alt="Check my LinkedIn out" class="icon">
+                    </a>
+                    <a href="https://github.com/Huspam" target="_blank">
+                        <img src="../assets/github-w.png" alt="Check my GitHub out" class="icon">
+                    </a>
+                </div>
+            </div>
+        </section>
+        <script src="script.js"></script>
+    </body>
+</html>

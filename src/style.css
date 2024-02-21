@@ -9,9 +9,10 @@
 body {
     font-family: "Poppins", sans-serif;
     caret-color: transparent;
-    background-color: rgb(17, 17, 17);
+    background: linear-gradient(#00010a,#00080f, #00010a, #00080f);
+    /* background-color: rgb(17, 17, 17); */
     color: rgb(142, 210, 255);
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 
 html {
@@ -29,14 +30,20 @@ a, .btn {
 }
 
 /* spinny cube */
+.spinner-container {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
 
 .spinner {
-    width: 70.4px;
-    height: 70.4px;
+    width: 35.2px;
+    height: 35.2px;
     --clr: rgb(142, 210, 255);
     --clr-alpha: rgb(142, 210, 255, .1);
     animation: spinner 15s infinite ease;
     transform-style: preserve-3d;
+    position: relative;
 }
   
 .spinner > div {
@@ -48,7 +55,7 @@ a, .btn {
 }
   
 .spinner div:nth-of-type(1) {
-    transform: translateZ(-35.2px) rotateY(180deg);
+    transform: translateZ(-17.6px) rotateY(180deg);
 }
   
 .spinner div:nth-of-type(2) {
@@ -72,7 +79,7 @@ a, .btn {
 }
   
 .spinner div:nth-of-type(6) {
-    transform: translateZ(35.2px);
+    transform: translateZ(17.6px);
 }
   
 @keyframes spinner {
@@ -100,13 +107,42 @@ nav {
     height: 15vh;
 }
 
-.nav-links {
-    gap: 2rem;
+.links-container {
+    margin: auto;
+}
+
+.nav-links{
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+    /* background: linear-gradient(#00010a,#00080f); */
+    /* background-color: rgba(0, 0, 0, 0.9); */
+    /* background-image: url('../assets/sky.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; */
+    /* background: transparent; */
+    position: fixed;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%);
+    border: 0.1rem solid white;
+    border-radius: 20px 20px 20px 20px;
+    gap: 3rem;
     list-style: none;
     font-size: 1vw;
+
+    background-image: url('../assets/sky.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 a {
+    white-space: nowrap;
     color: white;
     text-decoration: none;
     text-decoration-color: white;
@@ -119,17 +155,60 @@ a:hover {
     text-decoration-color: rgb(181, 181, 181);
 }
 
-.logo {
-    font-size: 2rem;
-    opacity: 0; /* Initially hidden */
-    transform: scale(0.5) translateY(-50px); /* Initially scaled down and moved up */
-    transition: opacity 1s ease, transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+/* LOGO */
+.logo-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
 }
 
-.logo.loaded {
-    opacity: 1; /* Make logo visible */
-    transform: scale(1) translateY(0); /* Scale logo up to normal size and move to original position */
+.logo {
+    font-size: 24px;
+    /* height: 40px;
+    width: 40px; */
+    padding: 10px;
+    color: rgb(142, 210, 255); /* Change color as needed */
+    opacity: 0;
+    animation: showLogo 1s forwards, wiggle 2.5s;
+    border: 0.1px solid white;
+    border-radius: 10%;
 }
+
+@keyframes showLogo {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes wiggle {
+    0% {
+        border: 0.1rem solid;
+        border-radius: 60%;
+    }
+    100% {
+        border: 0.1px solid white;
+        border-radius: 10%;
+    }
+}
+
+.content {
+    margin-top: 80px; /* Adjust according to the size of your logo */
+}
+
+/* When scrolling down, the logo stays fixed */
+.logo-container.fixed {
+    position: fixed;
+    top: 20px; /* Change according to your preference */
+    left: 20px; /* Change according to your preference */
+    animation: none;
+}
+
 
 .logo:hover {
     cursor: default;
@@ -142,8 +221,9 @@ a:hover {
 }
 
 .hamburger-menu {
-    position: relative;
-    display: inline-block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
 }
 
 .hamburger-icon {
@@ -151,6 +231,7 @@ a:hover {
     height: 30px;
     position: relative;
     cursor: pointer;
+    z-index: 10000;
 }
 
 .hamburger-icon span {
@@ -166,6 +247,7 @@ a:hover {
 .hamburger-icon span:nth-child(2) {
     top: 50%;
     transform: translateY(-50%);
+    width: 30px;
 }
 
 .hamburger-icon span:nth-child(3) {
@@ -186,28 +268,29 @@ a:hover {
 }
 
 .menu-links {
-    position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-    background-color: #333;
+    position: fixed;
+    top: 2px;
+    right: 5px;
+    width: calc(100vw - 25px);
+    background-color: rgba(51, 51, 51, 0.955);
     border-radius: 5px;
     border: transparent;
     overflow: hidden;
     transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
                 border-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
     max-height: 0;
-    z-index: 1;
-    text-align: center; /* Center the text */
+    text-align: center;
+    height: auto;
 }
 
 .menu-links.open {
-    max-height: 300px;
+    max-height: 500px;
     border: 1px solid white;
 }
 
 .menu-links ul {
     padding: 20px 10px;
-    margin: 0;
+    margin: 100px auto 0;
 }
 
 .menu-links li {
@@ -218,13 +301,13 @@ a:hover {
 
 .menu-links a {
     display: block;
-    padding: 10px 75px;
+    padding: 15px 75px;
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
 .menu-links a:hover {
-    background-color: #555;
+    background-color: rgb(85, 85, 85, 0.99);
     color: rgb(142, 210, 255);
 }
 
@@ -248,7 +331,7 @@ section {
 #profile {
     justify-content: center;
     gap: 5rem;
-    height: 80vh;
+    height: 85vh;
 }
 
 .section__pic-container {
@@ -260,7 +343,6 @@ section {
 
 .section__text {
     align-self: center;
-    /* text-align: left; */
     white-space: nowrap;
 }
 
@@ -273,6 +355,7 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 
 .tp1, .tp2, .tp3, .title {
@@ -329,7 +412,13 @@ section {
 .title {
     animation-delay: 2s;
     font-size: 3rem;
-    color: rgb(0,122,204);
+    /* background-image: linear-gradient(90deg,
+                                    rgb(0, 153, 255),
+                                    rgb(0, 75, 124));
+    background-clip: text;
+    -webkit-background-clip: text; */
+    color: rgb(0, 103, 172);
+    text-shadow: 4px 4px 8px black;
 }
 
 /* socials */
@@ -344,8 +433,8 @@ section {
 .main-pfp {
     cursor: pointer;
     height: auto;
-    border-radius: 50%;
-    transition: transform 800ms;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.7);
+    transition: all 2.5s ease-in-out, transform 800ms;
 }
 
 .main-pfp:hover {
@@ -354,7 +443,7 @@ section {
 
 /* plane lol */
 
-.plane {
+/* .plane {
     color: white;
     position: absolute;
     top: 20%;
@@ -379,7 +468,7 @@ section {
 @keyframes fadeOut {
     90% {opacity: 1;}
     100% {opacity: 0;}
-}
+} */
 
 /* icons */
 
@@ -391,7 +480,7 @@ section {
 
 .icon:hover {
     transform: scale(1.2);
-    box-shadow: 0 0 5px 2.5px rgba(142, 210, 255, 0.7);
+    box-shadow: 0 0 5px 2.5px rgba(102, 102, 102, 0.7);
     border-radius: 50%;
     
 }
@@ -399,7 +488,7 @@ section {
 /* BUTTONS */
 
 .btn-container {
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -412,33 +501,64 @@ section {
     width: 8rem;
     border-radius: 2rem;
 }
-  
-.btn-color-2{
-    background: rgb(30,30,30);
-    border: white 0.1rem solid;
-    color: white;
-}
 
 .btn-color-1 {
-    background: white;
-    border: white 0.1rem solid;
-    color: rgb(30,30,30);
-}
-  
-.btn-color-1:hover {
-    cursor: pointer;
-    color: rgb(142, 210, 255);
-    border: black 0.1rem solid;
-    background: black;
+    background: rgb(52, 0, 68);
+    border: rgb(176, 0, 211) 0.1rem solid;
+    color: rgb(244,243,193);
 }
 
-.btn-color-2:hover {
+.btn-color-2{
+    background: rgb(30,30,30);
+    border: rgb(95, 95, 95) 0.1rem solid;
+    color: rgb(244,243,193);
+}
+  
+.btn-color-1:hover, .btn-color-2:hover {
+    box-shadow: 0 0 5px 5px rgba(5, 0, 0, 0.8);
     cursor: pointer;
     color: rgb(142, 210, 255);
-    border: #555 0.1rem solid;
-    background: #555;
+    border: white 0.1rem solid;
+    background: white;
 }
+
+
+
   
 .btn-container {
     gap: 1rem;
 }
+
+/* button {
+    Variables
+    --button_radius: 0.75em;
+    --button_color: #e8e8e8;
+    --button_outline_color: #000000;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+  }
+  
+  .button_top {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+  }
+  
+  button:hover .button_top {
+    Pull the button upwards when hovered
+    transform: translateY(-0.33em);
+  }
+  
+  button:active .button_top {
+    Push the button downwards when pressed
+    transform: translateY(0);
+  } */

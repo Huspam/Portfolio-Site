@@ -30,6 +30,12 @@ window.addEventListener('scroll', function() {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    var screenAnimation = document.createElement('div');
+    screenAnimation.classList.add('screen-animation');
+    document.body.appendChild(screenAnimation);
+});
+
 document.addEventListener("DOMContentLoaded", function() {
     const logo = document.getElementById('logo');
     logo.classList.add('loaded');

@@ -12,6 +12,7 @@ body {
     background: linear-gradient(#00010a,#00080f, #00010a, #00080f);
     /* background-color: rgb(17, 17, 17); */
     color: rgb(142, 210, 255);
+    position: relative;
     /* white-space: nowrap; */
 }
 
@@ -28,6 +29,30 @@ p {
 a, .btn {
     transition: all 300 ms ease;
 }
+
+/* Screen load animation */
+.screen-animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* background-color: black; */
+    /* border-radius: 50%; */
+    /* border: 0.1rem  solid white; */
+    /* z-index: 10000; */
+}
+
+/* @keyframes screenAnimation {
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+} */
 
 /* spinny cube */
 .spinner-container {
@@ -114,7 +139,7 @@ nav {
 .nav-links{
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
     /* background: linear-gradient(#00010a,#00080f); */
-    /* background-color: rgba(0, 0, 0, 0.9); */
+    background-color: rgba(0, 0, 0, 0.9);
     /* background-image: url('../assets/sky.png');
     background-size: cover;
     background-position: center;
@@ -134,11 +159,11 @@ nav {
     list-style: none;
     font-size: 1vw;
 
-    background-image: url('../assets/sky.png');
+    /* background-image: url('../assets/sky.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 
 a {
@@ -170,7 +195,7 @@ a:hover {
     padding: 10px;
     color: rgb(142, 210, 255); /* Change color as needed */
     opacity: 0;
-    animation: showLogo 1s forwards, wiggle 2.5s;
+    animation: showLogo 2s forwards, wiggle 2.5s;
     border: 0.1px solid white;
     border-radius: 10%;
 }
@@ -178,7 +203,7 @@ a:hover {
 @keyframes showLogo {
     0% {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-75px);
     }
     100% {
         opacity: 1;
@@ -189,7 +214,7 @@ a:hover {
 @keyframes wiggle {
     0% {
         border: 0.1rem solid;
-        border-radius: 60%;
+        border-radius: 45%;
     }
     100% {
         border: 0.1px solid white;
@@ -198,14 +223,13 @@ a:hover {
 }
 
 .content {
-    margin-top: 80px; /* Adjust according to the size of your logo */
+    margin-top: 80px;
 }
 
-/* When scrolling down, the logo stays fixed */
 .logo-container.fixed {
     position: fixed;
-    top: 20px; /* Change according to your preference */
-    left: 20px; /* Change according to your preference */
+    top: 20px;
+    left: 20px;
     animation: none;
 }
 
@@ -246,8 +270,10 @@ a:hover {
 
 .hamburger-icon span:nth-child(2) {
     top: 50%;
+    right: 0;
     transform: translateY(-50%);
     width: 30px;
+    
 }
 
 .hamburger-icon span:nth-child(3) {
@@ -316,14 +342,14 @@ a:hover {
 section {
     padding-top: 4vh;
     height: 96vh;
-    margin: 0 10rem;
+    margin: 0 0 8rem 0;
     box-sizing: border-box;
     min-height: fit-content;
+    min-height: -moz-fit-content;
 }
 
 .section-container, #profile {
     display: flex;
-
 }
 
 /* PROFILE */
@@ -359,35 +385,35 @@ section {
 }
 
 .tp1, .tp2, .tp3, .title {
-    opacity: 0; /* Initially hidden */
+    opacity: 0;
 }
 
 .tp1, .tp2, .tp3 {
-    animation: flyInLeft 1s forwards; /* Animation */
+    animation: flyInLeft 1s forwards;
 }
 
 .title {
-    animation: flyInRight 1s forwards; /* Animation */
+    animation: flyInRight 1s forwards;
 }
 
 @keyframes flyInLeft {
     0% {
-        transform: translateX(100%); /* Start off-screen to the right */
+        transform: translateX(100%);
         opacity: 0;
     }
     100% {
-        transform: translateX(0); /* Fly in to the center */
+        transform: translateX(0);
         opacity: 1;
     }
 }
 
 @keyframes flyInRight {
     0% {
-        transform: translateX(-100%); /* Start off-screen to the left */
+        transform: translateX(-100%);
         opacity: 0;
     }
     100% {
-        transform: translateX(0); /* Fly in to the center */
+        transform: translateX(0);
         opacity: 1;
     }
 }
@@ -412,11 +438,6 @@ section {
 .title {
     animation-delay: 2s;
     font-size: 3rem;
-    /* background-image: linear-gradient(90deg,
-                                    rgb(0, 153, 255),
-                                    rgb(0, 75, 124));
-    background-clip: text;
-    -webkit-background-clip: text; */
     color: rgb(0, 103, 172);
     text-shadow: 4px 4px 8px black;
 }
@@ -434,7 +455,7 @@ section {
     cursor: pointer;
     height: auto;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.7);
-    transition: all 2.5s ease-in-out, transform 800ms;
+    transition: all 140ms ease, border-radius 2.5s ease-in-out, transform 800ms;
 }
 
 .main-pfp:hover {
@@ -503,8 +524,8 @@ section {
 }
 
 .btn-color-1 {
-    background: rgb(52, 0, 68);
-    border: rgb(176, 0, 211) 0.1rem solid;
+    background: rgb(0, 1, 68);
+    border: rgb(0, 14, 211) 0.1rem solid;
     color: rgb(244,243,193);
 }
 

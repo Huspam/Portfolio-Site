@@ -6,4 +6,34 @@
     #hamburger-nav {
         display: flex;
     }
+
+    #profile {
+        flex-direction: column;
+        height: 82vh;
+    }
+
+    .section__pic-container, .section__text {
+        align-self: center;
+        flex-basis: 100%;
+        height: 50vw;
+        width: 50vw;
+        max-height: 400px;
+        max-width: 400px;
+    }
+
+    .tp3 {
+        margin-bottom: 1rem;
+        text-wrap: wrap;
+    }
+
+    #socials-container {
+        margin-top: 0.5rem;
+    }
+
+    .main-pfp {
+        max-width: inherit;
+        max-height: inherit;
+        height: inherit;
+        width: inherit;
+    }
 }

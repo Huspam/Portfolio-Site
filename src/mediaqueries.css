@@ -26,10 +26,6 @@
         text-wrap: wrap;
     }
 
-    #socials-container {
-        margin-top: 0.5rem;
-    }
-
     .main-pfp {
         max-width: inherit;
         max-height: inherit;

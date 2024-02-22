@@ -9,7 +9,7 @@
 body {
     font-family: "Poppins", sans-serif;
     caret-color: transparent;
-    background: linear-gradient(#00010a,#00080f, #00010a, #00080f);
+    background: linear-gradient(#000108,#00050a, #000108,#00050a,#000108,#00050a, #000108,#00050a);
     /* background-color: rgb(17, 17, 17); */
     color: rgb(142, 210, 255);
     position: relative;
@@ -151,12 +151,14 @@ nav {
 
     /* style */
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 0.1rem solid white;
     border-radius: 20px 20px 20px 20px;
     gap: 3rem;
     list-style: none;
-    font-size: 1vw;
+    font-size: 14px;
 
     /* animation */
     animation: navShow 1s;
@@ -254,7 +256,7 @@ a:hover {
 @keyframes openUp {
     0% {
         border: 0.1rem solid;
-        border-radius: 45%;
+        border-radius: 50%;
     }
     100% {
         border: 0.1px solid white;
@@ -295,17 +297,49 @@ a:hover {
     transition: transform 0.3s ease;
 }
 
+/* .hamburger-icon span:nth-child(1) {
+    opacity: 0;
+    animation: showLeft 1s forwards;
+} */
+
 .hamburger-icon span:nth-child(2) {
     top: 50%;
     right: 0;
     transform: translateY(-50%);
     width: 30px;
+    /* opacity: 0; */
+    /* animation: showLeftt 1s forwards;
+    animation-delay: 0.25s; */
     
 }
+/* @keyframes showLeftt {
+    0% {
+        transform: translateX(150%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0, -50%);
+        opacity: 1;
+    }
+} */
 
 .hamburger-icon span:nth-child(3) {
     bottom: 0;
+    /* opacity: 0; */
+    /* animation: showLeft 1s forwards;
+    animation-delay: 0.5s; */
 }
+
+/* @keyframes showLeft {
+    0% {
+        transform: translateX(150%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+} */
 
 .hamburger-icon.open span:nth-child(1) {
     transform: translateX(-12px) rotate(45deg) translate(18px, 0px);

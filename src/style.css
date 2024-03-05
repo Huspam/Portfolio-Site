@@ -446,7 +446,8 @@ section {
 
 .section__text {
     align-self: center;
-    /* white-space: nowrap; */
+    width: 30vw;
+    white-space: nowrap;
 }
 
 /* intro */
@@ -624,7 +625,8 @@ section {
     overflow: hidden;
     height: auto;
     width: 50vw;
-    min-width: 450px;
+    min-width: 400px;
+    max-width: 485.5px;
 }
 
 .slider figure {
@@ -654,10 +656,17 @@ section {
 
 /* PROJECTS SECTION */
 
+#projects .section__text {
+    align-self: center;
+    width: 30vw;
+    white-space: wrap;
+}
+
 .about-containers {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: 80vw
 }
 
 .details-container-color-container {
@@ -666,7 +675,7 @@ section {
     align-items: center;
     justify-content: center;
     margin-top: 5rem;
-    gap: 5rem;
+    gap: 5vw;
     /* aspect-ratio: 9 / 9; */
 }
 
@@ -703,7 +712,7 @@ section {
     color: rgb(85, 85, 85);
     font-weight: 600;
     font-size: 1.75rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
   
 .experience-details-container {
